@@ -1,15 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const boxes = document.querySelectorAll('.box');
-    const details = document.querySelectorAll('.details');
-
-    boxes.forEach((box, index) => {
-        box.addEventListener('click', function() {
-            details.forEach(detail => {
-                detail.classList.remove('active');
-            });
-
-            details[index].classList.add('active');
-            details[index].scrollIntoView({ behavior: 'smooth' });
-        });
+document.querySelectorAll('.box').forEach(item => {
+    item.addEventListener('click', () => {
+        const detailsId = 'details-' + item.id.split('-')[1];
+        const details = document.getElementById(detailsId);
+        details.style.display = details.style.display === 'block' ? 'none' : 'block';
     });
 });
